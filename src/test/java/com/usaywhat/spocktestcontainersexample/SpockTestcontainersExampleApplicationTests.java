@@ -1,4 +1,4 @@
-package com.karq.integtest.integtestframework;
+package com.usaywhat.spocktestcontainersexample;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class IntegtestFrameworkApplicationTests {
+public class SpockTestcontainersExampleApplicationTests {
 
 	@Test
 	public void contextLoads() {

@@ -1,4 +1,4 @@
-package com.karq.integtest.integtestframework.config;
+package com.usaywhat.spocktestcontainersexample.config;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;

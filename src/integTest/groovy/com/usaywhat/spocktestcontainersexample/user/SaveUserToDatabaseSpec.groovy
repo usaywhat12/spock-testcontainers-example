@@ -1,14 +1,13 @@
-package com.karq.integtest.integtestframework.web
+package com.usaywhat.spocktestcontainersexample.user
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.usaywhat.spocktestcontainersexample.AbstractSpecification
 import org.junit.Assert
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 class SaveUserToDatabaseSpec extends AbstractSpecification {
 
@@ -23,10 +22,10 @@ class SaveUserToDatabaseSpec extends AbstractSpecification {
         user.setUsername("kunnar2")
 
         when: "a post request is sent with user data to /user endpoint"
-        String postUserStr = mvc.perform(post("/user")
+        String postUserStr = mvc.perform(org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post("/user")
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(new ObjectMapper().writeValueAsString(user)))
-                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk())
                 .andReturn()
                 .response
                 .contentAsString;
@@ -34,7 +33,7 @@ class SaveUserToDatabaseSpec extends AbstractSpecification {
 
         then: "user is saved to database"
         String getUserStr = mvc.perform(get("/user/"+postUser.getId()))
-                .andExpect(status().isOk())
+                .andExpect(org.springframework.test.web.servlet.result.MockMvcResultMatchers.status().isOk())
                 .andReturn()
                 .response
                 .contentAsString;

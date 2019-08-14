@@ -1,4 +1,4 @@
-package com.karq.integtest.integtestframework.config;
+package com.usaywhat.spocktestcontainersexample.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
